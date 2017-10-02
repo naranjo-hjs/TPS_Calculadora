@@ -1,4 +1,6 @@
 /**
+ * In Google Style
+ * 
  * @author Ignacio
  * Jose Ignacio Herrera Martinez
  * 201356054
@@ -19,7 +21,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     public CalculatorDisplay() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Calculator");
+        this.setTitle("Calculadora");
         this.setResizable(false);
         CalculatorLogic calculator = new CalculatorLogic();
         
@@ -36,7 +38,6 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         jPanelCalc = new javax.swing.JPanel();
         jLabelCalc = new javax.swing.JLabel();
         jButtonTwo = new javax.swing.JButton();
@@ -562,7 +563,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         
         jLabelOperation.setText("+");
@@ -573,13 +574,13 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualActionPerformed
         // TODO add your handling code here:
-        SolveOperation();
+        solveOperation();
     }//GEN-LAST:event_jButtonEqualActionPerformed
 
     private void jButtonSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubtractActionPerformed
         // TODO add your handling code here:
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         
         jLabelOperation.setText("-");
@@ -590,7 +591,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     private void jButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplyActionPerformed
         // TODO add your handling code here:
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         
         jLabelOperation.setText("X");
@@ -601,7 +602,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     private void jButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivideActionPerformed
         // TODO add your handling code here:
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         
         jLabelOperation.setText("div");
@@ -612,51 +613,51 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     private void jButtonSquareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSquareActionPerformed
         // TODO add your handling code here:
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         initializeLabelOperation();
         initializeFieldCalcPast();
-        jTextFieldCalc.setText(calculator.Square(Double.parseDouble(jTextFieldCalc.getText())) + "");
+        jTextFieldCalc.setText(calculator.square(Double.parseDouble(jTextFieldCalc.getText())) + "");
     }//GEN-LAST:event_jButtonSquareActionPerformed
 
     private void jButtonSquareRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSquareRootActionPerformed
         // TODO add your handling code here:
         if(verifyPendingOperation()){
-            SolveOperation();
+            solveOperation();
         }
         initializeLabelOperation();
         initializeFieldCalcPast();
-        jTextFieldCalc.setText(calculator.SquareRoot(Double.parseDouble(jTextFieldCalc.getText())) + "");
+        jTextFieldCalc.setText(calculator.squareRoot(Double.parseDouble(jTextFieldCalc.getText())) + "");
     }//GEN-LAST:event_jButtonSquareRootActionPerformed
 
     private void jButtonMemoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemoryActionPerformed
         // TODO add your handling code here:
         double numberOnScreen = Double.parseDouble(jTextFieldCalc.getText());
-        calculator.FunctionMemory(numberOnScreen);
+        calculator.functionMemory(numberOnScreen);
         jLabelMemoryValue.setText(numberOnScreen + "");
     }//GEN-LAST:event_jButtonMemoryActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
         // TODO add your handling code here:
-        calculator.FunctionMemory_plus(Double.parseDouble(jTextFieldCalc.getText()));
-        jLabelMemoryValue.setText(calculator.FunctionMemory_recall() + "");
+        calculator.functionMemory_plus(Double.parseDouble(jTextFieldCalc.getText()));
+        jLabelMemoryValue.setText(calculator.functionMemory_recall() + "");
     }//GEN-LAST:event_jButtonPlusActionPerformed
 
     private void jButtonMemoryMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemoryMinusActionPerformed
         // TODO add your handling code here:
-        calculator.FunctionMemory_minus(Double.parseDouble(jTextFieldCalc.getText()));
-        jLabelMemoryValue.setText(calculator.FunctionMemory_recall() + "");
+        calculator.functionMemory_minus(Double.parseDouble(jTextFieldCalc.getText()));
+        jLabelMemoryValue.setText(calculator.functionMemory_recall() + "");
     }//GEN-LAST:event_jButtonMemoryMinusActionPerformed
 
     private void jButtonMemoryRecallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemoryRecallActionPerformed
         // TODO add your handling code here:
-        jTextFieldCalc.setText(calculator.FunctionMemory_recall() + "");
+        jTextFieldCalc.setText(calculator.functionMemory_recall() + "");
     }//GEN-LAST:event_jButtonMemoryRecallActionPerformed
 
     private void jButtonMemoryClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemoryClearActionPerformed
         // TODO add your handling code here:
-        calculator.FunctionMemory_clear();
-        jLabelMemoryValue.setText(calculator.FunctionMemory_recall() + "");
+        calculator.functionMemory_clear();
+        jLabelMemoryValue.setText(calculator.functionMemory_recall() + "");
     }//GEN-LAST:event_jButtonMemoryClearActionPerformed
 
     private void addTextToFieldCalc(String text){
@@ -684,22 +685,22 @@ public class CalculatorDisplay extends javax.swing.JFrame {
         return true;
     }
     
-    private void SolveOperation(){
+    private void solveOperation(){
         double numberOfCalcField = Double.parseDouble(jTextFieldCalc.getText());        
         double numberOfCalcPastField = Double.parseDouble(jTextFieldCalcPast.getText());
         switch(jLabelOperation.getText()){
             
             case "+":
-                jTextFieldCalc.setText(calculator.Add(numberOfCalcPastField, numberOfCalcField) + "");
+                jTextFieldCalc.setText(calculator.add(numberOfCalcPastField, numberOfCalcField) + "");
                 break;
             case "-":
-                jTextFieldCalc.setText(calculator.Subtract(numberOfCalcPastField, numberOfCalcField) + "");
+                jTextFieldCalc.setText(calculator.subtract(numberOfCalcPastField, numberOfCalcField) + "");
                 break;
             case "X":
-                jTextFieldCalc.setText(calculator.Multiply(numberOfCalcPastField, numberOfCalcField) + "");
+                jTextFieldCalc.setText(calculator.multiply(numberOfCalcPastField, numberOfCalcField) + "");
                 break;
             case "div":
-                jTextFieldCalc.setText(calculator.Divide(numberOfCalcPastField, numberOfCalcField) + "");
+                jTextFieldCalc.setText(calculator.divide(numberOfCalcPastField, numberOfCalcField) + "");
                 break;
             default:
                 break;
