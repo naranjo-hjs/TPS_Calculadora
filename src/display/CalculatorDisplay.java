@@ -15,6 +15,7 @@ import logic.CalculatorLogic;
 public class CalculatorDisplay extends javax.swing.JFrame {
     
     private CalculatorLogic calculator = new CalculatorLogic();
+    
     /**
      * Creates new form CalculatorDisplay
      */
@@ -26,8 +27,96 @@ public class CalculatorDisplay extends javax.swing.JFrame {
         CalculatorLogic calculator = new CalculatorLogic();
         
         //*********************************************PRUEBA_INICIO
-        System.out.println("AQUI LA PRUEBA");
+        //System.out.println("AQUI LA PRUEBA");
         //*********************************************PRUEBA_FIN
+    }
+    
+    private void addTextToFieldCalc(String text) {
+        jTextFieldCalc.setText(jTextFieldCalc.getText() + text);
+    }
+    
+    private void initializeFieldCalc() {
+        jTextFieldCalc.setText("0");
+    }
+    
+    private void initializeFieldCalcPast() {
+        jTextFieldCalcPast.setText("0");
+    }
+    
+    private void initializeLabelOperation() {
+        jLabelOperation.setText("...");
+    }
+    
+    private boolean verifyPendingOperation() {
+        
+        if (jLabelOperation.getText().equals("...")) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private void solveOperation() {
+        double numberOfCalcField = Double.parseDouble(jTextFieldCalc.getText());        
+        double numberOfCalcPastField = Double.parseDouble(jTextFieldCalcPast.getText());
+        switch (jLabelOperation.getText()) {
+            
+            case "+":
+                jTextFieldCalc.setText(calculator.add(numberOfCalcPastField, numberOfCalcField) + "");
+                break;
+            case "-":
+                jTextFieldCalc.setText(calculator.subtract(numberOfCalcPastField, numberOfCalcField) + "");
+                break;
+            case "X":
+                jTextFieldCalc.setText(calculator.multiply(numberOfCalcPastField, numberOfCalcField) + "");
+                break;
+            case "div":
+                jTextFieldCalc.setText(calculator.divide(numberOfCalcPastField, numberOfCalcField) + "");
+                break;
+            default:
+                break;
+        }
+        
+        initializeLabelOperation();
+        initializeFieldCalcPast();
+        
+    }
+    
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CalculatorDisplay().setVisible(true);
+            }
+        });
     }
 
     /**
@@ -562,7 +651,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         
@@ -579,7 +668,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubtractActionPerformed
         // TODO add your handling code here:
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         
@@ -590,7 +679,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplyActionPerformed
         // TODO add your handling code here:
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         
@@ -601,7 +690,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivideActionPerformed
         // TODO add your handling code here:
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         
@@ -612,7 +701,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonSquareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSquareActionPerformed
         // TODO add your handling code here:
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         initializeLabelOperation();
@@ -622,7 +711,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
 
     private void jButtonSquareRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSquareRootActionPerformed
         // TODO add your handling code here:
-        if(verifyPendingOperation()){
+        if (verifyPendingOperation()) {
             solveOperation();
         }
         initializeLabelOperation();
@@ -660,93 +749,6 @@ public class CalculatorDisplay extends javax.swing.JFrame {
         jLabelMemoryValue.setText(calculator.functionMemory_recall() + "");
     }//GEN-LAST:event_jButtonMemoryClearActionPerformed
 
-    private void addTextToFieldCalc(String text){
-        jTextFieldCalc.setText(jTextFieldCalc.getText() + text);
-    }
-    
-    private void initializeFieldCalc(){
-        jTextFieldCalc.setText("0");
-    }
-    
-    private void initializeFieldCalcPast(){
-        jTextFieldCalcPast.setText("0");
-    }
-    
-    private void initializeLabelOperation(){
-        jLabelOperation.setText("...");
-    }
-    
-    private boolean verifyPendingOperation(){
-        
-        if(jLabelOperation.getText().equals("...")){
-            return false;
-        }
-        
-        return true;
-    }
-    
-    private void solveOperation(){
-        double numberOfCalcField = Double.parseDouble(jTextFieldCalc.getText());        
-        double numberOfCalcPastField = Double.parseDouble(jTextFieldCalcPast.getText());
-        switch(jLabelOperation.getText()){
-            
-            case "+":
-                jTextFieldCalc.setText(calculator.add(numberOfCalcPastField, numberOfCalcField) + "");
-                break;
-            case "-":
-                jTextFieldCalc.setText(calculator.subtract(numberOfCalcPastField, numberOfCalcField) + "");
-                break;
-            case "X":
-                jTextFieldCalc.setText(calculator.multiply(numberOfCalcPastField, numberOfCalcField) + "");
-                break;
-            case "div":
-                jTextFieldCalc.setText(calculator.divide(numberOfCalcPastField, numberOfCalcField) + "");
-                break;
-            default:
-                break;
-        }
-        
-        initializeLabelOperation();
-        initializeFieldCalcPast();
-        
-    }
-    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CalculatorDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CalculatorDisplay().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
