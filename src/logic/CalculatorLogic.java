@@ -17,6 +17,10 @@ public class CalculatorLogic {
         memory = 0;
     }
     
+    public double getMemory() {
+    	return memory;
+    }
+    
     public double add(double number1, double number2) {
         return number1 + number2;
     }
@@ -33,7 +37,7 @@ public class CalculatorLogic {
         return number1 / number2;
     }
     
-    public double square(double number1) {
+    public double pow(double number1) {
         return Math.pow(number1, 2.0);
     }
     
@@ -54,7 +58,7 @@ public class CalculatorLogic {
     }
     
     public double functionMemory_recall() {
-        return memory;
+        return getMemory();
     }
     
     public void functionMemory_clear() {

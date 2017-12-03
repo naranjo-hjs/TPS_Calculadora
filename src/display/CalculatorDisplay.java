@@ -706,7 +706,7 @@ public class CalculatorDisplay extends javax.swing.JFrame {
         }
         initializeLabelOperation();
         initializeFieldCalcPast();
-        jTextFieldCalc.setText(calculator.square(Double.parseDouble(jTextFieldCalc.getText())) + "");
+        jTextFieldCalc.setText(calculator.pow(Double.parseDouble(jTextFieldCalc.getText())) + "");
     }//GEN-LAST:event_jButtonSquareActionPerformed
 
     private void jButtonSquareRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSquareRootActionPerformed
