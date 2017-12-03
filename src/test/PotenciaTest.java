@@ -8,7 +8,7 @@ public class PotenciaTest extends TestCase {
 	/**
 	 * Prueba la potencia 2 de un número
 	 */
-	public void testSuma() {
+	public void testPotencia() {
 		
 		CalculatorLogic calculatorLogic = new CalculatorLogic();
 		double resultadoCorrecto = 16;

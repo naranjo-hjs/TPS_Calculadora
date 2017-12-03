@@ -3,19 +3,19 @@ package test;
 import logic.CalculatorLogic;
 import junit.framework.TestCase;
 
-public class GuardarEnMemoriaTest extends TestCase {
+public class TraerMemoriaTest extends TestCase {
 
 	/**
-	 * Prueba el guardado en memoria
+	 * Prueba traer el valor la memoria
 	 */
-	public void testGuardarEnMemoria() {
+	public void testTraerMemoria() {
 		
 		CalculatorLogic calculatorLogic = new CalculatorLogic();
 		double datoEsperadoAlmacenado = 4;
 		double datoRealAlmacenado = 0;
 		
 		calculatorLogic.functionMemory(4);
-		datoRealAlmacenado = calculatorLogic.getMemory();
+		datoRealAlmacenado = calculatorLogic.functionMemory_recall();
 		
 		if (datoRealAlmacenado != datoEsperadoAlmacenado) {
 			fail();

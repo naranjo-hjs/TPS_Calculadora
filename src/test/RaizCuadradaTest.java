@@ -8,7 +8,7 @@ public class RaizCuadradaTest extends TestCase {
 	/**
 	 * Prueba la raíz cuadrada de un número
 	 */
-	public void testSuma() {
+	public void testRaizCuadrada() {
 		
 		CalculatorLogic calculatorLogic = new CalculatorLogic();
 		double resultadoCorrecto = 4;

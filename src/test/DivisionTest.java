@@ -8,7 +8,7 @@ public class DivisionTest extends TestCase {
 	/**
 	 * Prueba la división de dos números
 	 */
-	public void testSuma() {
+	public void testDivision() {
 		
 		CalculatorLogic calculatorLogic = new CalculatorLogic();
 		double resultadoCorrecto = 4;

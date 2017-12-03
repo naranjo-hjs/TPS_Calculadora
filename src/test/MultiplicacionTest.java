@@ -8,7 +8,7 @@ public class MultiplicacionTest extends TestCase {
 	/**
 	 * Prueba la multiplicación de dos números
 	 */
-	public void testSuma() {
+	public void testMultiplicacion() {
 		
 		CalculatorLogic calculatorLogic = new CalculatorLogic();
 		double resultadoCorrecto = 4;
