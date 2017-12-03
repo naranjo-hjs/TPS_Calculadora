@@ -14,9 +14,26 @@ public class DivisionTest extends TestCase {
 		double resultadoCorrecto = 4;
 		double resultadoTest = 0;
 		
-		resultadoTest = calculatorLogic.divide(8, 2);
+		resultadoTest = Double.parseDouble(calculatorLogic.divide(8, 2));
 		
 		if (resultadoTest != resultadoCorrecto) {
+			fail();
+		} else {
+			//Prueba exitosa
+		}
+	}
+	
+	/**
+	 * Prueba la división por cero
+	 */
+	public void testDivisionPorCero() {
+		
+		CalculatorLogic calculatorLogic = new CalculatorLogic();
+		String resultadoTest = "";
+		
+		resultadoTest = calculatorLogic.divide(4, 0);
+		
+		if (!resultadoTest.equals("Error.")) {
 			fail();
 		} else {
 			//Prueba exitosa

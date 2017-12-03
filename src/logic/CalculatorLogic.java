@@ -33,8 +33,12 @@ public class CalculatorLogic {
         return number1 * number2;
     }
     
-    public double divide(double number1, double number2) {
-        return number1 / number2;
+    public String divide(double number1, double number2) {
+    	if (number2 != 0) {
+    		return number1 / number2 +"";
+    	} else {
+    		return "Error.";
+    	}
     }
     
     public double pow(double number1) {
