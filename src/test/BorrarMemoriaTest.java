@@ -5,23 +5,23 @@ import junit.framework.TestCase;
 
 public class BorrarMemoriaTest extends TestCase {
 
-	/**
-	 * Prueba borrar la memoria
-	 */
-	public void testBorrarMemoria() {
-		
-		CalculatorLogic calculatorLogic = new CalculatorLogic();
-		double datoEsperadoAlmacenado = 0;
-		double datoRealAlmacenado = 0;
-		
-		calculatorLogic.functionMemory(4);
-		calculatorLogic.functionMemory_clear();
-		datoRealAlmacenado = calculatorLogic.getMemory();
-		
-		if (datoRealAlmacenado != datoEsperadoAlmacenado) {
-			fail();
-		} else {
-			//Prueba exitosa
-		}
-	}
+    /**
+     * Prueba borrar la memoria
+     */
+    public void testBorrarMemoria() {
+
+        CalculatorLogic calculatorLogic = new CalculatorLogic();
+        double datoEsperadoAlmacenado = 0;
+        double datoRealAlmacenado = 0;
+
+        calculatorLogic.functionMemory(4);
+        calculatorLogic.functionMemoryClear();
+        datoRealAlmacenado = calculatorLogic.getMemory();
+
+        if (datoRealAlmacenado != datoEsperadoAlmacenado) {
+            fail();
+        } else {
+            // Prueba exitosa
+        }
+    }
 }
